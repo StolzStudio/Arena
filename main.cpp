@@ -2,6 +2,7 @@
 #include <iostream>
 #include "map.hpp"
 
+
 int main(int argc, const char * argv[]) {
     int q = -1;
     

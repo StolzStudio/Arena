@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <ncurses.h>
 
+
 class Map {
 protected:
     int length;

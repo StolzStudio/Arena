@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif /* point_hpp */
+#endif 
