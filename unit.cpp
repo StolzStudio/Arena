@@ -18,3 +18,10 @@ void Unit::DMG(int aDMG) {
     this->dmg = aDMG;
 }
 
+Point Unit::POS() {
+    return this->position;
+}
+
+void Unit::POS(Point aPOS) {
+    position = aPOS;
+}
