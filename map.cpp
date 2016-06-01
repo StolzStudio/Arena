@@ -7,6 +7,11 @@ Map::Map(int aLength) {
     bildArena();
 }
 
+Map::~Map() {
+    delete mapData;
+}
+
+
 void Map::drawMap() {
     for (int i = 0; i < this->length; i++) {
         for (int j = 0; j < this->length * 2; j++) {

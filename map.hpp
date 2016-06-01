@@ -16,7 +16,7 @@ public:
     char **mapData;
     
     Map(int aLength);
-    ~Map() {};
+    ~Map();
     
     void drawMap();
     
