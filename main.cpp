@@ -13,5 +13,6 @@ int main(int argc, const char * argv[]) {
     
     arena.drawMap();
     q = getch();
+    endwin();
     return 0;
 }
