@@ -25,3 +25,11 @@ Point Unit::POS() {
 void Unit::POS(Point aPOS) {
     position = aPOS;
 }
+
+char Unit::SKIN() {
+    return this->skin;
+}
+
+void Unit::SKIN(char aSKIN) {
+    skin = aSKIN;
+}
