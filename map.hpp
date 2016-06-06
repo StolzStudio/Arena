@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <ncurses.h>
+#include "point.hpp"
 
 
 class Map {
@@ -19,6 +20,7 @@ public:
     Map(int aLength);
     ~Map();
     
+    void drawUnit(char aUnitSkin, Point aUnitPosition);
     void drawMap();
     
 private:

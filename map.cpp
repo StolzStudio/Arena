@@ -11,6 +11,9 @@ Map::~Map() {
     delete mapData;
 }
 
+void Map::drawUnit(char aUnitSkin, Point aUnitPosition) {
+    mapData[aUnitPosition.Y()][aUnitPosition.X()] = aUnitSkin;
+}
 
 void Map::drawMap() {
     for (int i = 0; i < this->length; i++) {
