@@ -28,6 +28,8 @@ public:
     
     virtual char  SKIN();
     virtual void  SKIN(char aSKIN);
+    
+    virtual void  move(Point aUserWay);
 };
 
 class Knight: public Unit {

@@ -33,3 +33,7 @@ char Unit::SKIN() {
 void Unit::SKIN(char aSKIN) {
     skin = aSKIN;
 }
+
+void Unit::move(Point aUserWay) {
+    this->position = this->position + aUserWay;
+}

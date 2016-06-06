@@ -20,6 +20,9 @@ public:
     void startGame();
     void playGame();
     void finishGame();
+private:
+    void makeTurn();
+    Point getWayPoint(int aKey);
 };
 
 #endif
