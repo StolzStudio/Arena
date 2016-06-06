@@ -1,19 +1,12 @@
 
 #include <iostream>
-#include "map.hpp"
+#include "gamemanager.hpp"
 
 
 int main(int argc, const char * argv[]) {
-    int q = -1;
-    
-    Map arena = *new Map(20);
-    
-    initscr();
-    noecho();
-    erase();
-    
-    arena.drawMap();
-    q = getch();
-    endwin();
+    GameManager game = *new GameManager;
+    game.startGame();
+    game.playGame();
+    game.finishGame();
     return 0;
 }
