@@ -24,6 +24,8 @@ public:
     void drawUnit(char aUnitSkin, Point aUnitPosition);
     void drawMap();
     
+    void LENGTH(int aLENGTH);
+    int  LENGTH();
 private:
     void bildArena();
 };

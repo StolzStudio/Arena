@@ -51,5 +51,12 @@ void Map::bildArena() {
     }
     
     clearMap();
+}
 
+void Map::LENGTH(int aLENGTH) {
+    this->length = aLENGTH;
+}
+
+int Map::LENGTH() {
+    return this->length;
 }
