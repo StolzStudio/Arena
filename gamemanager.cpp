@@ -9,16 +9,22 @@ void GameManager::startGame() {
 }
 
 void GameManager::playGame() {
-    while(true) {
+    while(hero.HP() > 0) {
         erase();
+        map.clearMap();
         map.drawUnit(hero.SKIN(), hero.POS());
         map.drawMap();
+        drawHeroStats();
         makeTurn();
     }
 }
 
 void GameManager::finishGame() {
     endwin();
+}
+
+void GameManager::drawHeroStats() {
+    printw("health: %d\n", hero.HP());
 }
 
 void GameManager::makeTurn() {

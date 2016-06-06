@@ -21,8 +21,10 @@ public:
     void playGame();
     void finishGame();
 private:
+    void drawHeroStats();
     void makeTurn();
     Point getWayPoint(int aKey);
+    
 };
 
 #endif
