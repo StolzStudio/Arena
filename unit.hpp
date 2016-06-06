@@ -34,13 +34,25 @@ public:
 };
 
 class Knight: public Unit {
+protected:
+    int level;
+    int experience;
+    int needExperienceToNextLevel;
 public:
-    Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos) {};
+    Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos), level(1), experience(0), needExperienceToNextLevel(10) {};
+    
+    void EXP(int aEXP);
+    int  EXP();
+    
+    int  NEEDEXP();
+
 };
 
 class Mob: public Unit {
+protected:
+    int countEXP;
 public:
-    Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos) {};
+    Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos), countEXP(10) {};
 };
 
 #endif

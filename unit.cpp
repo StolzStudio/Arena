@@ -37,3 +37,20 @@ void Unit::SKIN(char aSKIN) {
 void Unit::move(Point aUserWay) {
     this->position = this->position + aUserWay;
 }
+
+void Knight::EXP(int aEXP) {
+    this->experience += aEXP;
+    if (this->experience >= this->needExperienceToNextLevel) {
+        this->level++;
+        this->experience -= this->needExperienceToNextLevel;
+        this->needExperienceToNextLevel *= 2;
+    }
+}
+
+int Knight::EXP() {
+    return this->experience;
+}
+
+int Knight::NEEDEXP() {
+    return this->needExperienceToNextLevel;
+}
