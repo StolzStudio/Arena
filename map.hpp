@@ -20,6 +20,7 @@ public:
     Map(int aLength);
     ~Map();
     
+    void clearMap();
     void drawUnit(char aUnitSkin, Point aUnitPosition);
     void drawMap();
     

@@ -11,6 +11,15 @@ Map::~Map() {
     delete mapData;
 }
 
+
+void Map::clearMap() {
+    for (int i = 1; i < this->length - 1; i ++) {
+        for (int j = 1; j < this->length * 2 - 1; j++) {
+            this->mapData[i][j] = CHAR_EMPTY;
+        }
+    }
+}
+
 void Map::drawUnit(char aUnitSkin, Point aUnitPosition) {
     mapData[aUnitPosition.Y()][aUnitPosition.X()] = aUnitSkin;
 }
@@ -41,10 +50,6 @@ void Map::bildArena() {
         this->mapData[this->length - 1][i]     = CHAR_BLOCK;
     }
     
-    for (int i = 1; i < this->length - 1; i ++) {
-        for (int j = 1; j < this->length * 2 - 1; j++) {
-            this->mapData[i][j] = CHAR_EMPTY;
-        }
-    }
+    clearMap();
 
 }
