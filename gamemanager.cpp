@@ -25,7 +25,10 @@ void GameManager::finishGame() {
 
 void GameManager::drawHeroStats() {
     printw("wave number: %d\n", wave);
-    printw("health: %d\n", hero.HP());
+    printw("hero:\n");
+    printw("     level : %d\n", hero.LEVEL());
+    printw("     health: %d\n", hero.HP());
+    printw("     exp   : %d/%d\n", hero.EXP(), hero.NEEDEXP());
 }
 
 void GameManager::makeTurn() {
