@@ -4,13 +4,16 @@
 
 #include <stdio.h>
 #include "map.hpp"
+#include "unit.hpp"
 
 class GameManager {
 protected:
-    Map map;
+    Map    map;
+    Knight hero;
 public:
-    GameManager(): map(20) {
+    GameManager(): map(20), hero(Point(2,2)) {
         Map map = *new Map(20);
+        Knight hero = *new Knight(Point(2,2));
     };
     ~GameManager() {};
     

@@ -10,6 +10,7 @@ void GameManager::startGame() {
 
 void GameManager::playGame() {
     int q = -1;
+    map.drawUnit(hero.SKIN(), hero.POS());
     map.drawMap();
     q = getch();
 }
