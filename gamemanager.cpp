@@ -24,6 +24,7 @@ void GameManager::finishGame() {
 }
 
 void GameManager::drawHeroStats() {
+    printw("wave number: %d\n", wave);
     printw("health: %d\n", hero.HP());
 }
 
