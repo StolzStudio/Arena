@@ -23,7 +23,7 @@ Point Unit::POS() {
 }
 
 void Unit::POS(Point aPOS) {
-    position = aPOS;
+    this->position = aPOS;
 }
 
 char Unit::SKIN() {
@@ -31,7 +31,7 @@ char Unit::SKIN() {
 }
 
 void Unit::SKIN(char aSKIN) {
-    skin = aSKIN;
+    this->skin = aSKIN;
 }
 
 void Unit::move(Point aUserWay) {
