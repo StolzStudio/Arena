@@ -38,6 +38,18 @@ void Unit::move(Point aUserWay) {
     this->position = this->position + aUserWay;
 }
 
+
+
+
+
+void Knight::LEVEL(int aLEVEL) {
+    this->level = aLEVEL;
+}
+
+int Knight::LEVEL() {
+    return this->level;
+}
+
 void Knight::EXP(int aEXP) {
     this->experience += aEXP;
     if (this->experience >= this->needExperienceToNextLevel) {
@@ -49,6 +61,10 @@ void Knight::EXP(int aEXP) {
 
 int Knight::EXP() {
     return this->experience;
+}
+
+void Knight::NEEDEXP(int aNEEDEXP) {
+    this->needExperienceToNextLevel = aNEEDEXP;
 }
 
 int Knight::NEEDEXP() {

@@ -41,9 +41,13 @@ protected:
 public:
     Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos), level(1), experience(0), needExperienceToNextLevel(10) {};
     
+    void LEVEL(int aLEVEL);
+    int  LEVEL();
+    
     void EXP(int aEXP);
     int  EXP();
     
+    void NEEDEXP(int aNEEDEXP);
     int  NEEDEXP();
 
 };
