@@ -6,6 +6,7 @@
 #include "point.hpp"
 
 #define SKIN_KNIGHT 'K'
+#define SKIN_ZOMBIE 'Z'
 
 
 class Unit {
@@ -35,6 +36,11 @@ public:
 class Knight: public Unit {
 public:
     Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos) {};
+};
+
+class Mob: public Unit {
+public:
+    Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos) {};
 };
 
 #endif
