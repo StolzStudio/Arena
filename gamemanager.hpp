@@ -20,8 +20,8 @@ protected:
     
 public:
     GameManager(): wave(1), map(20), hero(Point(2,2)) {
-        Map map     = *new Map(20);
-        Knight hero = *new Knight(Point(2,2));
+        Map map       = *new Map(20);
+        Knight hero   = *new Knight(Point(2,2));
         
         for (int i = 0; i < wave; i++) {
             zombie[i] = new Mob(Point(random() % 40, random() % 20));

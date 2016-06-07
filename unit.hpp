@@ -36,12 +36,14 @@ public:
 
 class Knight: public Unit {
 protected:
+    int maxHealth;
     int level;
     int experience;
     int needExperienceToNextLevel;
     
 public:
-    Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos), level(1), experience(0), needExperienceToNextLevel(10) {};
+    Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos), level(1), experience(0),
+                        needExperienceToNextLevel(10), maxHealth(20) {};
     
     void LEVEL(int aLEVEL);
     int  LEVEL();
@@ -51,6 +53,9 @@ public:
     
     void NEEDEXP(int aNEEDEXP);
     int  NEEDEXP();
+    
+private:
+    void levelUp();
 
 };
 

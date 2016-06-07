@@ -53,9 +53,7 @@ int Knight::LEVEL() {
 void Knight::EXP(int aEXP) {
     this->experience += aEXP;
     if (this->experience >= this->needExperienceToNextLevel) {
-        this->level++;
-        this->experience -= this->needExperienceToNextLevel;
-        this->needExperienceToNextLevel *= 2;
+        levelUp();
     }
 }
 
@@ -69,4 +67,12 @@ void Knight::NEEDEXP(int aNEEDEXP) {
 
 int Knight::NEEDEXP() {
     return this->needExperienceToNextLevel;
+}
+
+void Knight::levelUp() {
+    this->level++;
+    this->experience -= this->needExperienceToNextLevel;
+    this->needExperienceToNextLevel *= 2;
+    this->maxHealth += 10;
+    this->hp = this->maxHealth;
 }
