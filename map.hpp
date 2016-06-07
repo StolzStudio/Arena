@@ -26,6 +26,7 @@ public:
     
     void LENGTH(int aLENGTH);
     int  LENGTH();
+    
 private:
     void bildArena();
 };

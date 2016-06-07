@@ -15,14 +15,15 @@ protected:
     int   dmg;
     Point position;
     char  skin;
+    
 public:
     Unit(int aHp, int aDmg, char aSkin, Point aPos): hp(aHp), dmg(aDmg), skin(aSkin), position(aPos) {};
     
-    virtual int  HP();
-    virtual void HP(int aHP);
+    virtual int   HP();
+    virtual void  HP(int aHP);
     
-    virtual int  DMG();
-    virtual void DMG(int aDMG);
+    virtual int   DMG();
+    virtual void  DMG(int aDMG);
     
     virtual Point POS();
     virtual void  POS(Point aPOS);
@@ -38,6 +39,7 @@ protected:
     int level;
     int experience;
     int needExperienceToNextLevel;
+    
 public:
     Knight(Point aPos): Unit(20, 15, SKIN_KNIGHT, aPos), level(1), experience(0), needExperienceToNextLevel(10) {};
     
@@ -55,6 +57,7 @@ public:
 class Mob: public Unit {
 protected:
     int countEXP;
+    
 public:
     Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos), countEXP(10) {};
 };

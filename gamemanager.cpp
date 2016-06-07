@@ -13,9 +13,11 @@ void GameManager::playGame() {
         erase();
         map.clearMap();
         map.drawUnit(hero.SKIN(), hero.POS());
+        
         for (int i = 0; i < wave; i++) {
             map.drawUnit(zombie[i]->SKIN(), zombie[i]->POS());
         }
+        
         map.drawMap();
         drawHeroStats();
         makeHeroTurn();

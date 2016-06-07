@@ -17,10 +17,12 @@ protected:
     Knight  hero;
     Mob*    zombie[20];
     int     wave;
+    
 public:
     GameManager(): wave(1), map(20), hero(Point(2,2)) {
-        Map map = *new Map(20);
+        Map map     = *new Map(20);
         Knight hero = *new Knight(Point(2,2));
+        
         for (int i = 0; i < wave; i++) {
             zombie[i] = new Mob(Point(random() % 40, random() % 20));
         }
@@ -30,6 +32,7 @@ public:
     void startGame();
     void playGame();
     void finishGame();
+    
 private:
     void drawHeroStats();
     void makeHeroTurn();

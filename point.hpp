@@ -9,6 +9,7 @@ class Point {
 protected:
     int x;
     int y;
+    
 public:
     Point(): x(1), y(1) {};
     Point(int aX, int aY): x(aX), y(aY) {};
