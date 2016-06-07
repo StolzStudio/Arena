@@ -32,6 +32,7 @@ public:
     virtual void  SKIN(char aSKIN);
     
     virtual void  move(Point aUserWay);
+    virtual void  getDamage(int aDamage);
 };
 
 class Knight: public Unit {

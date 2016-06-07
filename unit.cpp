@@ -38,6 +38,10 @@ void Unit::move(Point aUserWay) {
     this->position = this->position + aUserWay;
 }
 
+void Unit::getDamage(int aDamage) {
+    this->hp -= aDamage;
+}
+
 
 
 
