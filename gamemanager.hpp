@@ -35,11 +35,12 @@ public:
     void finishGame();
     
 private:
-    void drawHeroStats();
-    void makeHeroTurn();
+    void  drawHeroStats();
+    void  makeHeroTurn();
     Point getWayPoint(int aKey);
-    int findUnit(Point aUnitPos, Point aWay);
-    void collide(int ZombieCount);
+    void  newWave();
+    int   findUnit(Point aUnitPos, Point aWay);
+    void  collide(int ZombieCount);
 };
 
 #endif

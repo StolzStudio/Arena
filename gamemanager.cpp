@@ -12,6 +12,9 @@ void GameManager::playGame() {
     while(hero.HP() > 0) {
         erase();
         map.clearMap();
+        if (deadCount == wave) {
+            newWave();
+        }
         map.drawUnit(hero.SKIN(), hero.POS());
         
         for (int i = 0; i < wave; i++) {
@@ -51,6 +54,16 @@ void GameManager::makeHeroTurn() {
     }
 }
 
+void GameManager::newWave() {
+    for (int i = 0; i < wave; i++) {
+        delete zombie[i];
+    }
+    wave++;
+    for (int i = 0; i < wave; i++) {
+        zombie[i] = new Mob(Point(random() % 40, random() % 20));
+    }
+    deadCount = 0;
+}
 Point GameManager::getWayPoint(int aKey) {
     switch (aKey) {
         case 'w': return Point( 0, -1);
@@ -76,5 +89,6 @@ void GameManager::collide(int aZombieCount) {
     if (zombie[aZombieCount]->HP() <= 0) {
         hero.EXP(zombie[aZombieCount]->EXP());
         zombie[aZombieCount]->ISDEAD(true);
+        deadCount++;
     }
 }
