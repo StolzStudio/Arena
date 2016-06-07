@@ -16,10 +16,11 @@ protected:
     Map     map;
     Knight  hero;
     Mob*    zombie[20];
+    int     deadCount;
     int     wave;
     
 public:
-    GameManager(): wave(1), map(20), hero(Point(2,2)) {
+    GameManager(): wave(1), deadCount(0), map(20), hero(Point(2,2)) {
         Map map       = *new Map(20);
         Knight hero   = *new Knight(Point(2,2));
         
@@ -37,8 +38,8 @@ private:
     void drawHeroStats();
     void makeHeroTurn();
     Point getWayPoint(int aKey);
-    Unit findUnit(Point aUnitPos, Point aWay);
-    
+    int findUnit(Point aUnitPos, Point aWay);
+    void collide(int ZombieCount);
 };
 
 #endif

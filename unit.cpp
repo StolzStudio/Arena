@@ -38,8 +38,9 @@ void Unit::move(Point aUserWay) {
     this->position = this->position + aUserWay;
 }
 
-void Unit::getDamage(int aDamage) {
+int Unit::getDamage(int aDamage) {
     this->hp -= aDamage;
+    return this->hp;
 }
 
 
@@ -79,4 +80,20 @@ void Knight::levelUp() {
     this->needExperienceToNextLevel *= 2;
     this->maxHealth += 10;
     this->hp = this->maxHealth;
+}
+
+
+
+
+
+int Mob::EXP() {
+    return this->countEXP;
+}
+
+bool Mob::ISDEAD() {
+    return this->isDead;
+}
+
+void Mob::ISDEAD(bool aISDEAD) {
+    this->isDead = aISDEAD;
 }

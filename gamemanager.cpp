@@ -15,7 +15,9 @@ void GameManager::playGame() {
         map.drawUnit(hero.SKIN(), hero.POS());
         
         for (int i = 0; i < wave; i++) {
-            map.drawUnit(zombie[i]->SKIN(), zombie[i]->POS());
+            if (!zombie[i]->ISDEAD()) {
+                map.drawUnit(zombie[i]->SKIN(), zombie[i]->POS());
+            }
         }
         
         map.drawMap();
@@ -41,7 +43,12 @@ void GameManager::makeHeroTurn() {
     q = getch();
     
     Point userWay = getWayPoint(q);
-    hero.move(getWayPoint(q));
+    int i = findUnit(hero.POS(), userWay);
+    if (i == -1) {
+        hero.move(getWayPoint(q));
+    } else {
+        collide(i);
+    }
 }
 
 Point GameManager::getWayPoint(int aKey) {
@@ -51,5 +58,23 @@ Point GameManager::getWayPoint(int aKey) {
         case 's': return Point( 0,  1);
         case 'd': return Point( 1,  0);
         default:  return Point( 0,  0);
+    }
+}
+
+int GameManager::findUnit(Point aUnitPos, Point aWay) {
+    Point NowPos = aUnitPos + aWay;
+    for (int i = 0; i < wave; i++) {
+        if ((NowPos == zombie[i]->POS())&&(!zombie[i]->ISDEAD())) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void GameManager::collide(int aZombieCount) {
+    zombie[aZombieCount]->getDamage(hero.DMG());
+    if (zombie[aZombieCount]->HP() <= 0) {
+        hero.EXP(zombie[aZombieCount]->EXP());
+        zombie[aZombieCount]->ISDEAD(true);
     }
 }

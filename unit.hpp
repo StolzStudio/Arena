@@ -32,7 +32,7 @@ public:
     virtual void  SKIN(char aSKIN);
     
     virtual void  move(Point aUserWay);
-    virtual void  getDamage(int aDamage);
+    virtual int   getDamage(int aDamage);
 };
 
 class Knight: public Unit {
@@ -62,10 +62,16 @@ private:
 
 class Mob: public Unit {
 protected:
-    int countEXP;
+    int  countEXP;
+    bool isDead;
     
 public:
-    Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos), countEXP(10) {};
+    Mob(Point aPos): Unit(10, 2, SKIN_ZOMBIE, aPos), countEXP(10), isDead(false) {};
+    
+    int  EXP();
+    
+    bool ISDEAD();
+    void ISDEAD(bool aISDEAD);
 };
 
 #endif
