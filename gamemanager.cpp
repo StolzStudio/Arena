@@ -60,10 +60,11 @@ void GameManager::newWave() {
     }
     wave++;
     for (int i = 0; i < wave; i++) {
-        zombie[i] = new Mob(Point(random() % 40, random() % 20));
+        zombie[i] = new Mob(Point(random() % 38 + 1, random() % 18 + 1));
     }
     deadCount = 0;
 }
+
 Point GameManager::getWayPoint(int aKey) {
     switch (aKey) {
         case 'w': return Point( 0, -1);
