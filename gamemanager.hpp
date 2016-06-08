@@ -39,7 +39,7 @@ private:
     void  makeHeroTurn();
     Point getWayPoint(int aKey);
     void  newWave();
-    int   findUnit(Point aUnitPos, Point aWay);
+    int   findUnit(Point aNextPos);
     void  collide(int ZombieCount);
 };
 

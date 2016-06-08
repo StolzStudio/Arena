@@ -3,6 +3,7 @@
 #define unit_hpp
 
 #include <stdio.h>
+#include "map.hpp"
 #include "point.hpp"
 
 #define SKIN_KNIGHT 'K'
@@ -31,7 +32,7 @@ public:
     virtual char  SKIN();
     virtual void  SKIN(char aSKIN);
     
-    virtual void  move(Point aUserWay);
+    virtual void  move(Point aUserWay, char aMapElement);
     virtual int   getDamage(int aDamage);
 };
 

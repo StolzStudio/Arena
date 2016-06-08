@@ -45,10 +45,13 @@ void GameManager::makeHeroTurn() {
     int q = -1;
     q = getch();
     
-    Point userWay = getWayPoint(q);
-    int i = findUnit(hero.POS(), userWay);
+    Point userWay     = getWayPoint(q);
+    Point userNextPos = hero.POS() + userWay;
+    
+    int i = findUnit(userNextPos);
+    
     if (i == -1) {
-        hero.move(getWayPoint(q));
+        hero.move(userWay, map.mapData[userNextPos.Y()][userNextPos.X()]);
     } else {
         collide(i);
     }
@@ -75,10 +78,9 @@ Point GameManager::getWayPoint(int aKey) {
     }
 }
 
-int GameManager::findUnit(Point aUnitPos, Point aWay) {
-    Point NowPos = aUnitPos + aWay;
+int GameManager::findUnit(Point aNextPos) {
     for (int i = 0; i < wave; i++) {
-        if ((NowPos == zombie[i]->POS())&&(!zombie[i]->ISDEAD())) {
+        if ((aNextPos == zombie[i]->POS())&&(!zombie[i]->ISDEAD())) {
             return i;
         }
     }

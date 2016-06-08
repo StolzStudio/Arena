@@ -34,8 +34,10 @@ void Unit::SKIN(char aSKIN) {
     this->skin = aSKIN;
 }
 
-void Unit::move(Point aUserWay) {
-    this->position = this->position + aUserWay;
+void Unit::move(Point aUserWay, char aMapElement) {
+    if (aMapElement != CHAR_BLOCK) {
+        this->position = this->position + aUserWay;
+    }
 }
 
 int Unit::getDamage(int aDamage) {
