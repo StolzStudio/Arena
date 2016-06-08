@@ -32,5 +32,4 @@ public:
     void Y(int aY);
 };
 
-
 #endif 
