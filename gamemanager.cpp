@@ -57,6 +57,10 @@ void GameManager::makeHeroTurn() {
     }
 }
 
+void GameManager::makeMobsTurn() {
+    
+}
+
 void GameManager::newWave() {
     for (int i = 0; i < wave; i++) {
         delete zombie[i];
