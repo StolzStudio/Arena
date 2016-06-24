@@ -31,6 +31,16 @@ void GameManager::playGame() {
 }
 
 void GameManager::finishGame() {
+    int q;
+    
+    erase();
+    
+    printw("you lose...\n");
+    printw("wave       = %d\n", wave);
+    printw("hero level = %d\n", hero.LEVEL());
+    
+    q = getch();
+    
     endwin();
 }
 
