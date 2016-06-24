@@ -32,7 +32,7 @@ public:
     virtual char  SKIN();
     virtual void  SKIN(char aSKIN);
     
-    virtual void  move(Point aUserWay, char aMapElement);
+    virtual void  move(Point aWay, char aMapElement);
     virtual int   getDamage(int aDamage);
 };
 
