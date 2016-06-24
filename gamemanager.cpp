@@ -26,6 +26,7 @@ void GameManager::playGame() {
         map.drawMap();
         drawHeroStats();
         makeHeroTurn();
+        makeMobsTurn();
     }
 }
 
@@ -58,7 +59,13 @@ void GameManager::makeHeroTurn() {
 }
 
 void GameManager::makeMobsTurn() {
-    
+    Point mobNextPos;
+    Point mobWay;
+    for (int i = 0; i < wave; i++) {
+        mobWay     = getMobWayToHero(i);
+        mobNextPos = zombie[i]->POS() + mobWay;
+        zombie[i]->move(mobWay, map.mapData[mobNextPos.Y()][mobNextPos.X()]);
+    }
 }
 
 void GameManager::newWave() {
@@ -70,6 +77,25 @@ void GameManager::newWave() {
         zombie[i] = new Mob(Point(random() % 38 + 1, random() % 18 + 1));
     }
     deadCount = 0;
+}
+
+Point GameManager::getMobWayToHero(int i) {
+    int x = hero.POS().X() - zombie[i]->POS().X();
+    int y = hero.POS().Y() - zombie[i]->POS().Y();
+    
+    if (x < 0) {
+         return Point(-1,  0);
+    }
+    else if (x > 0) {
+         return Point( 1,  0);
+    }
+    else if (y < 0) {
+         return Point( 0, -1);
+    }
+    else if (y > 0) {
+         return Point( 0,  1);
+    }
+    else return Point( 0,  0);
 }
 
 Point GameManager::getWayPoint(int aKey) {

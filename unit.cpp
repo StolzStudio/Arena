@@ -35,7 +35,7 @@ void Unit::SKIN(char aSKIN) {
 }
 
 void Unit::move(Point aUserWay, char aMapElement) {
-    if (aMapElement != CHAR_BLOCK) {
+    if (aMapElement == CHAR_EMPTY) {
         this->position = this->position + aUserWay;
     }
 }
