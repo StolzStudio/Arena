@@ -71,10 +71,12 @@ void GameManager::makeHeroTurn() {
 void GameManager::makeMobsTurn() {
     Point mobNextPos;
     Point mobWay;
+    
     for (int i = 0; i < wave; i++) {
         if (!zombie[i]->ISDEAD()) {
             mobWay     = getMobWayToHero(i);
             mobNextPos = zombie[i]->POS() + mobWay;
+            
             if (mobNextPos != hero.POS()) {
                 zombie[i]->move(mobWay, map.mapData[mobNextPos.Y()][mobNextPos.X()]);
             } else {
@@ -133,11 +135,12 @@ int GameManager::findUnit(Point aNextPos) {
     return -1;
 }
 
-void GameManager::collide(int aZombieCount) {
-    zombie[aZombieCount]->getDamage(hero.DMG());
-    if (zombie[aZombieCount]->HP() <= 0) {
-        hero.EXP(zombie[aZombieCount]->EXP());
-        zombie[aZombieCount]->ISDEAD(true);
+void GameManager::collide(int aZombieNumber) {
+    zombie[aZombieNumber]->getDamage(hero.DMG());
+    
+    if (zombie[aZombieNumber]->HP() <= 0) {
+        hero.EXP(zombie[aZombieNumber]->EXP());
+        zombie[aZombieNumber]->ISDEAD(true);
         deadCount++;
     }
 }
