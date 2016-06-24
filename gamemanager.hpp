@@ -42,7 +42,8 @@ private:
     Point getWayPoint(int aKey);
     void  newWave();
     int   findUnit(Point aNextPos);
-    void  collide(int ZombieCount);
+    void  collide(int aZombieCount);
+    void  collide();
 };
 
 #endif

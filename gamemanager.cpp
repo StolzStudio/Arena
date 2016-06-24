@@ -62,9 +62,15 @@ void GameManager::makeMobsTurn() {
     Point mobNextPos;
     Point mobWay;
     for (int i = 0; i < wave; i++) {
-        mobWay     = getMobWayToHero(i);
-        mobNextPos = zombie[i]->POS() + mobWay;
-        zombie[i]->move(mobWay, map.mapData[mobNextPos.Y()][mobNextPos.X()]);
+        if (!zombie[i]->ISDEAD()) {
+            mobWay     = getMobWayToHero(i);
+            mobNextPos = zombie[i]->POS() + mobWay;
+            if (mobNextPos != hero.POS()) {
+                zombie[i]->move(mobWay, map.mapData[mobNextPos.Y()][mobNextPos.X()]);
+            } else {
+                collide();
+            }
+        }
     }
 }
 
@@ -124,4 +130,8 @@ void GameManager::collide(int aZombieCount) {
         zombie[aZombieCount]->ISDEAD(true);
         deadCount++;
     }
+}
+
+void GameManager::collide() {
+    hero.getDamage(2);
 }
