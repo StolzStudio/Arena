@@ -36,13 +36,17 @@ public:
     
 private:
     void  drawHeroStats();
+    
     void  makeHeroTurn();
     void  makeMobsTurn();
+    
     Point getMobWayToHero(int i);
     Point getWayPoint(int aKey);
+    
     void  newWave();
     int   findUnit(Point aNextPos);
-    void  collide(int aZombieCount);
+    
+    void  collide(int aZombieNumber);
     void  collide();
 };
 
